@@ -9,7 +9,7 @@ Created on Fri May 10 09:57:21 2024
 import numpy as np
 
 entradas = np.array([[0,0], [0,1], [1,0], [1,1]])
-saidas = np.array([0, 0, 0, 1])
+saidas = np.array([0, 1, 1, 1])
 pesos = np.array([0.0, 0.0])
 taxaAprendizagem = 0.1
 
@@ -32,11 +32,15 @@ def treinar():
             erroTotal += erro
             for j in range (len(pesos)):
                 pesos[j] = pesos[j] + (taxaAprendizagem * entradas [i] [j] * erro)
-                print('pesos atualizados' + str (pesos[j]))
-        print('Total de erros' + str(erroTotal)) 
+                print('pesos atualizados: ' + str (pesos[j]))
+        print('Total de erros: ' + str(erroTotal)) 
             
-            
-treinar()        
+
+treinar()
+print('rede neural treinada!')
+for i in range (len(entradas)):
+    print(calculasaida(entradas[i]))
+
 
 
 
